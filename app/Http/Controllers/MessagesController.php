@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
-use App\Services\MessagesStorageService;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller

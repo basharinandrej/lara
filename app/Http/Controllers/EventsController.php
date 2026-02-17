@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Events;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +12,9 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events/index');
+        $events = Events::all();
+
+        return view('events/index', compact('events'));
     }
 
     /**
@@ -35,7 +38,7 @@ class EventsController extends Controller
         ]);
 
         $event = new Events();
-        $events->fill($payload)->save();
+        $event->fill($payload)->save();
 
         return redirect()->route('events.index')->with('event', 'Новый эвент успешно создан');
     }
