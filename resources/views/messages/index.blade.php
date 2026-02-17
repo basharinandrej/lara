@@ -1,5 +1,7 @@
 <h1>Blog</h1>
-<a href="{{ route('messages.create') }}">create</a>
+<a href="{{ route('messages.create') }}">Создать сообщение</a>
+<br>
+<a href="{{ route('home') }}">Главная</a>
 <ul class="messages">
 @foreach ($messages as $message)
     <li class="message">

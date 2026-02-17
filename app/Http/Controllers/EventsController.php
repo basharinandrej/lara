@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return 'index';
+        return view('events/index');
     }
 
     /**
@@ -19,7 +19,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return 'create';
+        return view('events/create');
     }
 
     /**
@@ -35,7 +35,7 @@ class PostsController extends Controller
      */
     public function show(string $id)
     {
-        return '<h3 style="color: green">' . $id . '</h3>';
+        //
     }
 
     /**

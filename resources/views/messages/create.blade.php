@@ -1,4 +1,8 @@
 
+<a href="{{ route('messages.index') }}">Сообщения</a>
+<br>
+<a href="{{ route('home') }}">Главная</a>
+
 <form method="post" action="{{ route('messages.store') }}">
   @csrf
   <label for="name">

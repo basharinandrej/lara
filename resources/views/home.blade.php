@@ -7,6 +7,15 @@
 		<title>Document</title>
 	</head>
 	<body>
-		Hello world  -  {{ $name }}
+		Hello world
+
+		<ol>
+			<li>
+				<a href="{{ route('messages.index') }}">Сообщения</a>
+			</li>
+			<li>
+				<a href="{{ route('events.index') }}">Эвенты</a>
+			</li>
+		</ol>
 	</body>
 </html>
