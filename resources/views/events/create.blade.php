@@ -5,16 +5,20 @@
 <br>
 <a href="{{ route('events.index') }}">Все эвенты</a>
 
-<form action="" method="post">
-  <label for="name">
-    <span>Название event</span>
-    <input type="text" name="name">
+<br>
+<br>
+
+<form action="{{ route('events.store') }}" method="post">
+  @csrf
+  <label for="title">
+    <span>Название event'a</span>
+    <input type="text" name="title">
   </label>
   <br>
 
-  <label for="name">
-    <span>Название event</span>
-    <input type="text" name="name">
+  <label for="description">
+    <span>Описане event'a</span>
+    <input type="text" name="description">
   </label>
   <br>
 
@@ -30,5 +34,5 @@
   </label>
   <br>
 
-  <button type="submit">Отправить</button>
+  <button type="send">Отправить</button>
 </form>

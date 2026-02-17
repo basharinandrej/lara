@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Events extends Model
 {
-    
     protected $guarded = [];
 }

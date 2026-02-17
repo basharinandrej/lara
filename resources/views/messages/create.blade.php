@@ -20,5 +20,5 @@
     @endif
   </label>
   <hr>
-  <button type="send">send</button>
+  <button type="submit">send</button>
 </form>

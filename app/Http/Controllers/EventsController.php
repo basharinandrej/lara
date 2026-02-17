@@ -27,7 +27,17 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->validate([
+            "name" => 'required|min:5|max:32',
+            "description" => ['required', 'min:10', 'max:255'],
+            "duration" => ['required', 'min:2', 'max:255'],
+            "start_date" => ['required', 'min:5', 'max:255'],
+        ]);
+
+        $event = new Events();
+        $events->fill($payload)->save();
+
+        return redirect()->route('events.index')->with('event', 'Новый эвент успешно создан');
     }
 
     /**
