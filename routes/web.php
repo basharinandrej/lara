@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\SimpleController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\EventsController;
 use Illuminate\Support\Facades\Route;
