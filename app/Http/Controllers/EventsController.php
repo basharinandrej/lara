@@ -13,7 +13,6 @@ class EventsController extends Controller
     public function index()
     {
         $events = Events::all();
-
         return view('events/index', compact('events'));
     }
 
@@ -40,7 +39,10 @@ class EventsController extends Controller
         $event = new Events();
         $event->fill($payload)->save();
 
-        return redirect()->route('events.index')->with('event', 'Новый эвент успешно создан');
+        return redirect()->route('events.index')->with(
+            'event', 
+            'Новый эвент успешно создан: ' . $payload['name']
+        );
     }
 
     /**
@@ -48,7 +50,8 @@ class EventsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Events::findOrFail($id);
+        return view('events/show', compact('event'));
     }
 
     /**
@@ -56,7 +59,8 @@ class EventsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Events::findOrFail($id);
+        return view('events/edit', compact('id', 'event'));
     }
 
     /**
@@ -64,7 +68,20 @@ class EventsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $payload = $request->validate([
+            "name" => 'required|min:5|max:32',
+            "description" => ['required', 'min:10', 'max:255'],
+            "duration" => ['required', 'min:2', 'max:255'],
+            "start_date" => ['required', 'min:5', 'max:255'],
+        ]);
+
+        $event = Events::findOrFail($id);
+        $event->update($payload);
+
+        return redirect()->route('events.index')->with(
+            'event', 
+            'Событие успешно отредактированно: ' . $payload['name']
+        );
     }
 
     /**
@@ -72,6 +89,12 @@ class EventsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Events::findOrFail($id);
+        $event->delete();
+
+        return redirect()->route('events.index')->with(
+            'event', 
+            'Событие успешно удаленно'
+        );
     }
 }

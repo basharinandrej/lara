@@ -7,14 +7,24 @@
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-<a href="{{ route('events.create') }}">Создать event</a>
+	<div class="container">
+		@if (session('event'))
+			<div class="alert alert-success">{{ session('event') }}</div>
+		@endif
 
-<ul class="list-group">
-@foreach ($events as $event)
-	<li class="list-group-item">
-		<span>{{ $event->name }}</span>
-	</li>
-@endforeach
-</ul>
+		<a
+			class="btn btn-link"
+			href="{{ route('events.create') }}">
+			Создать событие
+		</a>
+
+		<ul class="list-group">
+		@foreach ($events as $event)
+			<li class="list-group-item">
+				<a href="{{ route('events.show', $event->id) }}">{{ $event->name }}</a>
+			</li>
+		@endforeach
+		</ul>
+	</div>
 </body>
 </html>

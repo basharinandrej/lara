@@ -11,20 +11,20 @@
 <br>
 <a href="{{ route('home') }}">Главная</a>
 
-<form method="post" action="{{ route('messages.store') }}">
-	@csrf
-	<label for="title">
-		title:
-		<input type="text" name="title" value="{{ old('title') }}" id="title" />
-		@error('title')<span>{{ $message }}</span>@enderror
-	</label><br/>
-	<label for="content">
-		content:
-		<input type="text" name="content" value="{{ old('content') }}" id="content" />
-		@error('content')<span>{{ $message }}</span>@enderror
-	</label>
-	<hr>
-	<button type="submit">send</button>
-</form>
+	<form method="post" action="{{ route('messages.store') }}">
+		@csrf
+		<label for="title">
+			title:
+			<input type="text" name="title" value="{{ old('title') }}" id="title" />
+			@error('title')<span>{{ $message }}</span>@enderror
+		</label><br/>
+		<label for="content">
+			content:
+			<input type="text" name="content" value="{{ old('content') }}" id="content" />
+			@error('content')<span>{{ $message }}</span>@enderror
+		</label>
+		<hr>
+		<button type="submit">send</button>
+	</form>
 </body>
 </html>
